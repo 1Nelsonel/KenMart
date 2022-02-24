@@ -9,17 +9,17 @@
             </div>
             <div class="w-body-a">
               <p class="w-text-a text-light">
-                Enim minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip exea commodo consequat duis
-                sed aute irure.
+                KenMart Mall is ultra modern mall that is right at your convinience to shop anytime anywhere at 
+                an affordable price.
               </p>
             </div>
             <div class="w-footer-a">
               <ul class="list-unstyled">
                 <li class="text-light">
-                  <span class="text-success">Phone .</span> contact@example.com
+                  <span class="text-success">Phone .</span> +254 720841555
                 </li>
                 <li class="text-light">
-                  <span class="text-success">Email .</span> +54 356 945234
+                  <span class="text-success">Email .</span> kenmartmall@co.ke
                 </li>
               </ul>
             </div>
@@ -28,28 +28,28 @@
         <div class="col-sm-12 col-md-4 section-md-t3">
           <div class="widget-a">
             <div class="w-header-a">
-              <h3 class="w-title-a text-brand text-success">The Company</h3>
+              <h3 class="w-title-a text-brand text-success">Site-Links</h3>
             </div>
             <div class="w-body-a">
               <div class="w-body-a">
                 <ul class="list-unstyled">
                   <li class="item-list-a">
-                    <i class="bi bi-chevron-right "></i> <a class="text-light" href="#">Site Map</a>
+                    <i class="bi bi-chevron-right "></i> <a class="text-light" href="/">Home</a>
                   </li>
                   <li class="item-list-a">
-                    <i class="bi bi-chevron-right"></i> <a class="text-light" href="#">Legal</a>
+                    <i class="bi bi-chevron-right"></i> <a class="text-light" href="about">About</a>
                   </li>
                   <li class="item-list-a">
-                    <i class="bi bi-chevron-right"></i> <a class="text-light" href="#">Agent Admin</a>
+                    <i class="bi bi-chevron-right"></i> <a class="text-light" href="shop">Shops</a>
                   </li>
                   <li class="item-list-a">
-                    <i class="bi bi-chevron-right"></i> <a class="text-light" href="#">Careers</a>
+                    <i class="bi bi-chevron-right"></i> <a class="text-light" href="blog">Blogs</a>
                   </li>
                   <li class="item-list-a">
-                    <i class="bi bi-chevron-right"></i> <a class="text-light" href="#">Affiliate</a>
+                    <i class="bi bi-chevron-right"></i> <a class="text-light" href="agents">Agents</a>
                   </li>
                   <li class="item-list-a">
-                    <i class="bi bi-chevron-right"></i> <a class="text-light" href="#">Privacy Policy</a>
+                    <i class="bi bi-chevron-right"></i> <a class="text-light" href="contact">Contact</a>
                   </li>
                 </ul>
               </div>
@@ -59,30 +59,43 @@
         <div class="col-sm-12 col-md-4 section-md-t3">
           <div class="widget-a">
             <div class="w-header-a">
-              <h3 class="w-title-a text-brand text-success">International sites</h3>
+              <h3 class="w-title-a text-brand text-success">Contact Us</h3>
             </div>
-            <div class="w-body-a">
-              <ul class="list-unstyled">
-                <li class="item-list-a">
-                  <i class="bi bi-chevron-right"></i> <a class="nel" href="#">Venezuela</a>
-                </li>
-                <li class="item-list-a">
-                  <i class="bi bi-chevron-right"></i> <a class="" href="#">China</a>
-                </li>
-                <li class="item-list-a">
-                  <i class="bi bi-chevron-right"></i> <a class="" href="#">Hong Kong</a>
-                </li>
-                <li class="item-list-a">
-                  <i class="bi bi-chevron-right"></i> <a class="" href="#">Argentina</a>
-                </li>
-                <li class="item-list-a">
-                  <i class="bi bi-chevron-right"></i> <a class="" href="#">Singapore</a>
-                </li>
-                <li class="item-list-a">
-                  <i class="bi bi-chevron-right"></i> <a class="" href="#">Philippines</a>
-                </li>
-              </ul>
-            </div>          
+                
+            <!--start of form-->
+            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+              <div class="row">
+                <div class="col-md-12 mb-3">
+                  <div class="form-group">
+                    <input type="text" name="name" class="form-control form-control-lg form-control-a" placeholder="name" required>
+                  </div>
+                </div>
+                <div class="col-md-12 mb-3">
+                  <div class="form-group">
+                    <input type="email" name="email" class="form-control form-control-lg form-control-a" placeholder="email" required>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <textarea name="message" class="form-control" name="message" cols="25" rows="6" placeholder="Message" required></textarea>
+                  </div>
+                </div>
+                <div class="col-md-12 my-3">
+                  <div class="mb-1">
+                    <div class="error-message"></div>
+                    <div class="sent-message">Your message has been sent. Thank you!</div>
+                  </div>
+                </div>
+
+                <div class="col-md-12 text-center p-2">
+                  <button class="btn btn-submit btn-success">Send Message</button>
+                </div>
+              </div>
+            </form>
+          </div>
+            <!--end of form-->
+
+
         </div>
     </div>
     <hr>
