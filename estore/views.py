@@ -20,3 +20,5 @@ def agents(request):
         return render(request, 'agents.html')
 def agent_single(request):
         return render(request, 'agent-single.html')
+
+

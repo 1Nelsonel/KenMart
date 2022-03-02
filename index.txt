@@ -1,0 +1,66 @@
+CATEGORIES = (
+        (1, 'Computing'),
+        (2, 'Clothes & Fashon'),
+        (3, 'Electronics'),
+        (4, 'Foodstuff'),
+        (5, 'Home & Office'),
+        (6, 'Health & Beauty'),
+        (7, 'Phone & Tablates')
+      
+    )
+    SUB_CATEGORIES = (
+        ('Electronics', (
+            (31, 'Televisions'),
+            (32, 'Home Audio'),
+            (33, 'Other accesories'),
+            
+        )),
+        
+        ('Cloths & Fashon', (
+            (21, 'Children'),
+            (22, 'Men'),
+            (23, 'Women')
+        )),
+
+        ('Computing', (
+            (11, 'Laptops'),
+            (12, 'Computers'),
+            (13, 'Computer Componets'),
+            (14, 'Computer data Storage'),
+        )),
+
+        ('Foodstuff', (
+            (41, 'Ingredients'),
+            (42, 'Cerials'),
+            (43, 'Sugar & flour'),
+            (44, 'Margarine, Jams, Honey & Spreads'),
+            (45, 'Grains & Rice'),
+            (46, 'Dairy'),
+            (47, 'Beer, Wine & Spirits'),
+            (48, 'Coffee, Tea & Cocoa'),
+            (49, 'Juices & Non Carbonated Drinks')
+        )),
+
+         ('Home & Office', (
+            (51, 'Home Kitchen'),
+            (52, 'Small Appliences'),
+            (53, 'Large Appliences'),
+            (54, 'Cooking Appliences'),
+        )),
+         ('Phones and Tablates', (
+             (61, 'Mobile Phones'),
+             (62, 'Tables'),
+             (63, 'Accesories')
+         )),
+         ('Health & Beauty', (
+             (71, 'Hair Care'),
+             (72, 'Fragrance'),
+             (73, 'Health Care'),
+             (74, 'Oral Care'),
+             (75, 'Men Groom'),
+             (76, 'Personal Care'),
+             (77, 'Makeup'),
+             (78, 'Luxury Beauty'),
+         )),
+        
+    )
