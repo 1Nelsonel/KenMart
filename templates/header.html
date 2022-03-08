@@ -1,67 +1,70 @@
 <!--styles-->
 <style>
-    a {
+  a {
     color: #ffffff !important;
   }
+
   a:hover {
     color: #196135 !important;
     text-decoration: none;
   }
-  .dropdown-item .text-success a:hover{
-    color:black !important;
+
+  .dropdown-item .text-success a:hover {
+    color: black !important;
   }
+
   .new {
-    color:black !important;
+    color: black !important;
   }
-  </style>
+</style>
 
 <!-- ======= Header/Navbar ======= -->
-<nav class="navbar navbar-default navbar-trans navbar-expand-lg bg-dark p-0 fixed-top">
-    <div class="container">
-      <button class="navbar-toggler collapsed bg-success" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <a class="navbar-brand text-brand text-light" href="/">Ken<span class="color-b">Mart</span></a>
+<nav class="navbar navbar-default navbar-trans navbar-expand-lg p-0 bg-dark fixed-top">
+  <div class="container">
+    <button class="navbar-toggler collapsed bg-success" type="button" data-bs-toggle="collapse"
+      data-bs-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <a class="navbar-brand text-brand text-light" href="/">Ken<span class="color-b">Mart</span></a>
 
-      <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
-        <ul class="navbar-nav">
+    <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
 
-          <li class="nav-item">
-            <a class="nav-link text-light" href="/">Home</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link text-light" href="about">About</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link text-light" href="shop">Shop</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link text-light" href="blog">Blog</a>
-          </li>
-
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
-            <div class="dropdown-menu bg-dark">
-              <a class="dropdown-item" href="product">Product</a>
-              <a class="dropdown-item " href="blog_single">Blog Single</a>
-              <a class="dropdown-item " href="agents">Agents Grid</a>
-              <a class="dropdown-item " href="agent_single">Agent Single</a>
+      <div class="col-md-6 col-sm-8 col-xs-11">
+        <div class="navbar-form " role="search">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term"
+              style="max-width: 100%; width: 100%;">
+            <div class="input-group-btn">
             </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-light" href="contact">Contact</a>
-          </li>
-        </ul>
+
+          </div>
+        </div>
       </div>
 
-      <button type="button" class="btn btn-b-n navbar-toggle-box navbar-toggle-box-collapse" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01">
-        <i class="bi bi-search"></i>
-      </button>
+      <ul class="navbar-nav">
 
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">Pages</a>
+          <div class="dropdown-menu bg-dark">
+            <a class="dropdown-item" href="product">Product</a>
+            <a class="dropdown-item " href="blog_single">Blog Single</a>
+            <a class="dropdown-item " href="agents">Agents Grid</a>
+            <a class="dropdown-item " href="agent_single">Agent Single</a>
+          </div>
+        </li>
+      </ul>
     </div>
-  </nav><!-- End Header/Navbar -->
+    <div>
+    </div>
+
+    <button type="button" class="btn btn-b-n navbar-toggle-box navbar-toggle-box-collapse" data-bs-toggle="collapse"
+      data-bs-target="#navbarTogglerDemo01">
+      <i class="bi bi-search"></i>
+    </button>
+
+  </div>
+</nav><!-- End Header/Navbar -->
