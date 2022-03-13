@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -71,23 +72,29 @@
           <div class="sticky-top">
             <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
               <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                <span class="fs-5 d-none d-sm-inline">Menu</span>
+                <span class="fs-5 d-none d-sm-inline">Sort</span>
               </a>
               <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                 <li class="nav-item">
-                  <a href="#" class="nav-link align-middle px-0">
+                  <a href="/" class="nav-link align-middle px-0">
                     <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
                   </a>
                 </li>
                 <li>
                   <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                    <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Dashboard</span> </a>
+                    <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Links</span> </a>
                   <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                     <li class="w-100">
-                      <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1 </a>
+                      <a href="about" class="nav-link px-0"> <span class="d-none d-sm-inline">About </a>
                     </li>
                     <li>
-                      <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2 </a>
+                      <a href="blog" class="nav-link px-0"> Blogs </a>
+                    </li>
+                    <li>
+                      <a href="agents" class="nav-link px-0"> Agents </a>
+                    </li>
+                    <li>
+                      <a href="Contact" class="nav-link px-0"> Contact</a>
                     </li>
                   </ul>
                 </li>
@@ -183,54 +190,23 @@
 
                 {% for product in products %}
 
-                <div class="col-md-3">
-                  <div class="card-box-a card-shadow">
-                    <div class="img-box-a">
-                      <img src="{{baseUrl}}/{{product.image1}}" alt="" class="img-a img-fluid">
-                    </div>
-                    <div class="card-overlay">
-                      <div class="card-overlay-a-content">
-                        <div class="card-header-a">
-                          <h2 class="card-title-a">
-                            <a href="#">{{product.product_name}} </a>
-                          </h2>
-                        </div>
-                        <div class="card-body-a">
-                          <div class="price-box d-flex">
-                            <span class="price-a">{{product.price}}</span>
-                          </div>
-                          <a href="property-single.html" class="link-a">Click here to view
-                            <span class="bi bi-chevron-right"></span>
-                          </a>
-                        </div>
-                        <div class="card-footer-a">
-                          <ul class="card-info d-flex justify-content-around">
-                            <li>
-                              <h4 class="card-info-title">Area</h4>
-                              <span>340m
-                                <sup>2</sup>
-                              </span>
-                            </li>
-                            <li>
-                              <h4 class="card-info-title">Beds</h4>
-                              <span>2</span>
-                            </li>
-                            <li>
-                              <h4 class="card-info-title">Baths</h4>
-                              <span>4</span>
-                            </li>
-                            <li>
-                              <h4 class="card-info-title">Garages</h4>
-                              <span>1</span>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
+                <div class="col-md-3 bg-body">
+
+                  <div class="shadow bg-light ">
+                    <img src="{{baseUrl}}/{{product.image1}}" class="card-img-top img-fluid" alt="...">
+                    <div class="card-body">
+                      <p class="fw-bold text-dark">{{product}}</p>
+                      <p class="card-text text-dark">Brand: {{product.sub_sub_category}}</p>
+
+                                         
+                      <a href="{% url 'product' product.id %}" class="btn btn-success">Go somewhere</a>
                     </div>
                   </div>
                 </div>
                 {% endfor %}
 
+              </div>
+              <div class="p-2">
               </div>
 
               {% include 'footer.html' %}
