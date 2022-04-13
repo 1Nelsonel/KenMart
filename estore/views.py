@@ -1,7 +1,7 @@
 from django.contrib import messages
 from django.db.models import Q
 from django.shortcuts import render
-from estore.models import Product
+from estore.models import Product, Category
 
 # Create your views here.
 def index(request):
@@ -18,9 +18,9 @@ def shop(request):
         Q(description__icontains=q)
     )
 
-        # products = Product.objects.all()
+        categories = Category.objects.all()
 
-        context = {'products': products}
+        context = {'products': products, 'categories': categories}
         return render(request, 'estore/shop.html', context)
 
 def product(request,pk):

@@ -1,7 +1,3 @@
-from distutils.text_file import TextFile
-from operator import mod
-from statistics import mode
-from unicodedata import category
 from django.db import models
 
 # Create your models here. 
