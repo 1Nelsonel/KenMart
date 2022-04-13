@@ -28,20 +28,22 @@
       <span></span>
       <span></span>
     </button>
-    <a class="navbar-brand text-brand text-light" href="/">Ken<span class="color-b">Mart</span></a>
+    <a class="navbar-brand text-brand text-light" href="{% url 'shop' %}">Ken<span class="color-b">Mart</span></a>
 
     <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
 
       <div class="col-md-6 col-sm-8 col-xs-11">
-        <div class="navbar-form " role="search">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term"
-              style="max-width: 100%; width: 100%;">
-            <div class="input-group-btn">
-            </div>
+        <form class="" method="GET" action=" {% url 'shop' %} ">
+          <div class="navbar-form " role="search">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search" name="q"
+                style="max-width: 100%; width: 100%;">
+              <div class="input-group-btn">
+              </div>
 
+            </div>
           </div>
-        </div>
+        </form>
       </div>
 
       <ul class="navbar-nav">
@@ -50,9 +52,9 @@
           <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">Pages</a>
           <div class="dropdown-menu bg-dark">
-            <a class="dropdown-item" href="product">Product</a>
-            <a class="dropdown-item " href="blog_single">Blog Single</a>
-            <a class="dropdown-item " href="agents">Agents Grid</a>
+            <a class="dropdown-item" href="#">Product</a>
+            <a class="dropdown-item " href="{% url 'blog' %}">Blog Single</a>
+            <a class="dropdown-item " href="{% url 'agents' %}">Agents Grid</a>
             <a class="dropdown-item " href="agent_single">Agent Single</a>
           </div>
         </li>

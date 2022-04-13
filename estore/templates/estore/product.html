@@ -1,0 +1,143 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<main id="main">
+
+
+
+  <!-- ======= Intro Single ======= -->
+
+  <section class="intro-single">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-lg-8">
+          <div class="title-single-box">
+            <h3 class="title-single">{{product.product_name}}</h3>
+
+          </div>
+        </div>
+        <div class="col-md-12 col-lg-4">
+          <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a class="new" href="{% url 'shop' %}">Home</a>
+              </li>
+              <li class="breadcrumb-item">
+                <a class="new" href="{{request.META.HTTP_REFERER}}">Properties</a>
+              </li>
+
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </section><!-- End Intro Single-->
+
+  <!-- ======= Property Single ======= -->
+  <section class="property-single nav-arrow-b">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div id="property-single-carousel" class="swiper">
+            <div class="swiper-wrapper">
+              <div class="carousel-item-b swiper-slide">
+                <img src="{{baseUrl}}/{{product.image1}}" alt="">
+              </div>
+              <div class="carousel-item-b swiper-slide">
+                <img src="{{baseUrl}}/{{product.image2}}" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="property-single-carousel-pagination carousel-pagination"></div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+
+          <div class="row justify-content-between">
+            <div class="col-md-5 col-lg-4">
+              <div class="property-price d-flex justify-content-center foo">
+                <div class="card-header-c d-flex">
+                  <div class="card-box-ico">
+                    <span class="bi bi-cash">$</span>
+                  </div>
+                  <div class="card-title-c align-self-center">
+                    <h5 class="title-c">{{product.price}}</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="property-summary">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="title-box-d section-t4">
+                      <h3 class="title-d">Quick Summary</h3>
+                    </div>
+                  </div>
+                </div>
+                <div class="summary-list">
+                  <ul class="list">
+                    <li class="d-flex justify-content-between">
+                      <strong>Property ID:</strong>
+                      <span>{{product.id}}</span>
+                    </li>
+                    <li class="d-flex justify-content-between">
+                      <strong>Status:</strong>
+                      <span>In Stock</span>
+                    </li>
+                    <li class="d-flex justify-content-between">
+                      <strong>Category:</strong>
+                      <span>
+                        {{product.category}}
+                      </span>
+                    </li>
+                    <li class="d-flex justify-content-between">
+                      <strong>Sub Category</strong>
+                      <span>{{product.sub_category}}</span>
+                    </li>
+                    <li class="d-flex justify-content-between">
+                      <strong>Brand:</strong>
+                      <span>{{product.sub_sub_category}}</span>
+                    </li>
+                    <li class="d-flex justify-content-between">
+                      <strong>Rating:</strong>
+                      <span>{{product.num_stars}}</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-7 col-lg-7 section-md-t3">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="title-box-d">
+                    <h3 class="title-d">Property Description</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="property-description">
+                <p class="description color-text-a">
+                  {{product.description}}
+                </p>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section><!-- End Property Single-->
+
+
+</main>
+<!-- End #main -->
+<div class="pb-5">
+
+    </div>
+
+{% endblock %}

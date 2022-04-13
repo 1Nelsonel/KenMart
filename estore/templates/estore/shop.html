@@ -1,0 +1,67 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<div class="p-3 mt-5">
+
+  <div class="container-fluid">
+    <div class="row flex-nowrap ">
+
+      {% include 'sidebar.html' %}
+
+      <div class="col py-3">
+        <section class="grid">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12 col-lg-4">
+                <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                      <a class="new" href="/">Home</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                      <a class="new" href="{% url 'index' %}">Properties Grid</a>
+                    </li>
+                  </ol>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </section><!-- End Intro Single-->
+
+        <!-- ======= Property Grid ======= -->
+        <section class="property-grid grid">
+          <div class="container">
+            <div class="row">
+
+              {% for product in products %}
+
+              <div class="col-md-3 bg-body">
+
+                <div class="shadow bg-light ">
+                  <img src="{{baseUrl}}/{{product.image1}}" class="card-img-top img-fluid" alt="...">
+                  <div class="card-body">
+                    <p class="fw-bold text-dark">{{product}}</p>
+                    <p class="card-text text-dark">Brand: {{product.sub_sub_category}}</p>
+
+
+                    <a href="{% url 'product' product.id %}" class="btn btn-success">Go somewhere</a>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <div class="pb-5">
+
+</div> -->
+
+{% endblock %}
