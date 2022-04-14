@@ -42,9 +42,11 @@ class Product(models.Model):
     image2 = models.ImageField(upload_to='media')
     description = models.TextField()
     release_date = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
     num_stars = models.IntegerField()
+
+    class Meta:
+        ordering = ['-updated', '-release_date']
 
     def __str__(self):
         return self.product_name
-
-

@@ -10,5 +10,7 @@ urlpatterns = [
     path('blog/', views.blog, name='blog'), 
     path('blog_single/', views.blog_single, name='blog_single'),
     path('agents/', views.agents, name='agents'), 
-    path('agent_single/', views.agent_single, name='agent_single'),  
+    path('agent_single/', views.agent_single, name='agent_single'), 
+    path('cart/', views.cart, name="cart"), 
+    path('checkout/', views.checkout, name="checkout"), 
     ]

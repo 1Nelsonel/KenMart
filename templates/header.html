@@ -35,7 +35,7 @@
       <div class="col-md-6 col-sm-8 col-xs-11">
         <form class="" method="GET" action=" {% url 'shop' %} ">
           <div class="navbar-form " role="search">
-            <div class="input-group">
+            <div class="input-group pt-3">
               <input type="text" class="form-control" placeholder="Search" name="q"
                 style="max-width: 100%; width: 100%;">
               <div class="input-group-btn">
@@ -59,14 +59,23 @@
           </div>
         </li>
       </ul>
+      
     </div>
     <div>
     </div>
 
     <button type="button" class="btn btn-b-n navbar-toggle-box navbar-toggle-box-collapse" data-bs-toggle="collapse"
       data-bs-target="#navbarTogglerDemo01">
-      <i class="bi bi-search"></i>
+      <i class="bi bi-person-circle"></i>
+     
     </button>
+    <div class=" navbar-toggle-box">
+      <a href="#">
+        <i class="bi bi-cart"></i>
+      </a>
+      <p class="bg-danger p- rounded-circle" id="cart-total">0</p>
+    </div>
+    
 
   </div>
 </nav><!-- End Header/Navbar -->

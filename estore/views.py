@@ -42,7 +42,14 @@ def blog_single(request):
         
 def agents(request):
         return render(request, 'estore/agents.html')
+
 def agent_single(request):
         return render(request, 'estore/agent-single.html')
 
+def cart(request):
+	context = {}
+	return render(request, 'estore/cart.html', context)
 
+def checkout(request):
+	context = {}
+	return render(request, 'estore/checkout.html', context)
