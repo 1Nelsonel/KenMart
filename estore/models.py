@@ -13,7 +13,7 @@ class Category(models.Model):
 # Sub_Category
 class Sub_Category(models.Model):
     sub_category_name = models.CharField(max_length=50)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category = models.ManyToManyField(Category, related_name='category', blank=True)
 
     def __str__(self):
         return self.sub_category_name
@@ -23,7 +23,7 @@ class Sub_Category(models.Model):
 # Sub_Sub_Category
 class Sub_Sub_Category(models.Model):
     sub_sub_category_name = models.CharField(max_length=50)
-    sub_category = models.ForeignKey(Sub_Category, on_delete=models.CASCADE)
+    sub_category = models.ManyToManyField(Sub_Category, related_name='sub_category', blank=True)
 
     def __str__(self):
         return self.sub_sub_category_name
