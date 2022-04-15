@@ -2,9 +2,8 @@
 {% load static %}
 {% block content %}
 
-<div class="pt-4">
 
-</div>
+
 <br>
 <br>
 <br>
@@ -12,7 +11,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-6">
-				<div class="shadow" id="form-wrapper">
+				<div class="shadow bg-light" id="form-wrapper">
 					<form id="form">
 						<div class="row p-3">
 							<div class="col">
@@ -43,12 +42,17 @@
 								<div class="form-field col">
 									<input class="form-control" type="text" name="zipcode" placeholder="Zip code..">
 								</div>
-								
+
 							</div>
 						</div>
 
 						<hr>
-						<input id="form-button" class="btn btn-success btn-block" type="submit" value="Continue">
+						<div class="row p-3">
+							<input id="form-button" class="btn btn-success btn-block" type="submit"
+								value="Continue">
+						</div>
+
+
 					</form>
 				</div>
 
@@ -60,26 +64,29 @@
 			</div>
 
 			<div class="col-lg-6">
-				<div class="shadow">
-					<a class="btn btn-outline-dark text-dark" href="{{request.META.HTTP_REFERER}}">&#x2190; Back to
-						Cart</a>
-					<hr>
-					<h3>Order Summary</h3>
-					<hr>
-					<div class="cart-row">
-						<div style="flex:2"><img class="row-image" src="{% static 'images/placeholder.png' %}"></div>
-						<div style="flex:2">
-							<p>Product 1</p>
+				<div class="shadow bg-light">
+					<div class="p-3">
+						<a class="btn btn-outline-dark text-dark" href="{{request.META.HTTP_REFERER}}">&#x2190; Back to
+							Cart</a>
+						<hr>
+						<h3 class="fw-bolder">Order Summary</h3>
+						<hr>
+						<div class="row">
+							<div style="flex:2"><img class="row-image" src="{% static 'images/placeholder.png' %}">
+							</div>
+							<div style="flex:2">
+								<p class="fw-bolder">Product 1</p>
+							</div>
+							<div style="flex:1">
+								<p class="fw-bolder">$20.00</p>
+							</div>
+							<div style="flex:1">
+								<p class="fw-bolder">x2</p>
+							</div>
 						</div>
-						<div style="flex:1">
-							<p>$20.00</p>
-						</div>
-						<div style="flex:1">
-							<p>x2</p>
-						</div>
+						<h5 class="fw-bolder">Items: 2</h5>
+						<h5 class="fw-bolder">Total: $4</h5>
 					</div>
-					<h5>Items: 2</h5>
-					<h5>Total: $4</h5>
 				</div>
 			</div>
 		</div>
