@@ -1,6 +1,25 @@
 {% extends 'main.html' %}
 {% load static %}
 {% block content %}
+<style>
+    /* custom styles */
+
+.img-style {
+  width: 100px !important;
+  height: 90px !important;
+}
+.quantity {
+  display: inline-block !important;
+  font-weight: 700 !important;
+  padding-right: 10px !important;
+}
+.ch-quantity {
+  width: 12px !important;
+  cursor: pointer !important;
+  display: block !important;
+}
+/* end of custom styles */   
+</style>
 
 <div class="p-3 pt-5">
 
@@ -8,17 +27,18 @@
 <div class="container p-3 pt-5 ">
     <div class="row">
         <div class="col-lg-12">
-            <div class="shadow p-1">
+            <div class="shadow p-3">
 
-                <a class="btn btn-outline-dark text-dark" href="{{request.META.HTTP_REFERER}}">&#x2190; Continue Shopping</a>
+                <a class="btn btn-outline-success  text-dark" href="{% url 'shop' %}">&#x2190; Continue
+                    Shopping</a>
                 <hr>
                 <table class="table">
                     <tr>
                         <th>
-                            <h5>Items: <strong>3</strong></h5>
+                            <h5>Items: <strong>{{order.get_cart_items}} </strong></h5>
                         </th>
                         <th>
-                            <h5>Total:<strong> $42</strong></h5>
+                            <h5>Total:<strong> kSH {{order.get_cart_total|floatformat:2}}</strong></h5>
                         </th>
                         <th>
                             <a style="float:right; margin:5px;" class="btn btn-success" href="{% url 'checkout' %}">Checkout</a>
@@ -31,41 +51,42 @@
             <br>
             <br>
             <div class="row">
-            <div class="shadow">
-                <div class="row">
-                    <div style="flex:2"></div>
-                    <div style="flex:2"><strong>Item</strong></div>
-                    <div style="flex:1"><strong>Price</strong></div>
-                    <div style="flex:1"><strong>Quantity</strong></div>
-                    <div style="flex:1"><strong>Total</strong></div>
+                <div class="shadow">
+                    <div class="row">
+                        <div style="flex:2"></div>
+                        <div style="flex:2" class="fw-bold text-dark"><strong>Item</strong></div>
+                        <div style="flex:1" class="fw-bold text-dark"><strong>Price</strong></div>
+                        <div style="flex:1" class="fw-bold text-dark"><strong>Quantity</strong></div>
+                        <div style="flex:1" class="fw-bold text-dark"><strong>Total</strong></div>
+                    </div>
+                    <hr>
+                    {% for item in items %}
+                    <div class="row">
+
+                        <div style="flex:2"><img class="row-image img-style" src="{{item.product.image1.url}}"></div>
+                        <div style="flex:2">
+                            <p class="text-dark">{{item.product.product_name}}</p>
+                        </div>
+                        <div style="flex:1">
+                            <p class="text-dark">ksh {{item.product.price|floatformat:2}}</p>
+                        </div>
+                        <div style="flex:1">
+                            <p class="quantity text-dark">X{{item.quantity}}
+                            <div class="quantity">
+                                <i class="bi bi-caret-up-fill ch-quantity text-dark"></i>
+                                <i class="bi bi-caret-down-fill ch-quantity text-dark"></i>
+                            </div>
+                            </p>
+                        </div>
+                        <div style="flex:1">
+                            <p class="text-dark">kSH {{item.get_total|floatformat:2}} </p>
+                        </div>
+
+                    </div>
+                    {% endfor %}
+                    <hr>
+
                 </div>
-                <hr>
-
-                <div class="row">
-                    
-                    <div style="flex:2"><img class="row-image" src="{% static 'images/placeholder.png' %}"></div>
-                    <div style="flex:2">
-                        <p>Product 1</p>
-                    </div>
-                    <div style="flex:1">
-                        <p>$20</p>
-                    </div>
-                    <div style="flex:1">
-                        <p class="quantity">2
-
-                            <i class="bi bi-plus-lg"></i>
-
-                            <i class="bi bi-dash-lg"></i>
-                        </p>
-                    </div>
-                    <div style="flex:1">
-                        <p>$32</p>
-                    </div>
-                    
-                </div>
-                <hr>
-
-            </div>
             </div>
         </div>
     </div>

@@ -50,9 +50,8 @@
                   <img src="{{baseUrl}}/{{product.image1}}" class="card-img-top img-fluid" alt="...">
                   <div class="card-body">
                     <p class="fw-bold text-dark">{{product}}</p>
-                    <p class="card-text text-dark">Brand: {{product.sub_sub_category}}</p>
-
-
+                    <p class="card-text text-dark">Brand: <span class="fw-bold">{{product.sub_sub_category}}</span></p>
+                    <p class="card-text text-dark">Price: <span class="fw-bold">{{product.price|floatformat:2}}</span></p>
                     <a href="{% url 'product' product.id %}" class="btn btn-success">View</a>
                   
                     <a href="{% url 'cart' %}" class="btn btn-primary ">Add To Cart</a>

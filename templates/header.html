@@ -51,7 +51,7 @@
           <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">Pages</a>
           <div class="dropdown-menu bg-dark">
-            <a class="dropdown-item" href="#">Product</a>
+            <a class="dropdown-item" href="{% url 'shop' %}">Product</a>
             <a class="dropdown-item " href="{% url 'blog' %}">Blog Single</a>
             <a class="dropdown-item " href="{% url 'agents' %}">Agents Grid</a>
             <a class="dropdown-item " href="agent_single">Agent Single</a>
@@ -70,9 +70,9 @@
     </button>
     <div class=" navbar-toggle-box">
       <a href="#">
-        <i class="bi bi-cart"></i>
+        <i class="bi bi-cart3"></i>
       </a>
-      <p class="bg-danger p-2 rounded-pill" id="cart-total">0</p>
+      <p class="bg-light p-2 rounded-pill" id="cart-total">0</p>
     </div>
 
 

@@ -1,7 +1,16 @@
 {% extends 'main.html' %}
 {% load static %}
 {% block content %}
+<style>
+    /* custom styles */
 
+.img-style {
+  width: 100px !important;
+  height: 90px !important;
+}
+
+/* end of custom styles */   
+</style>
 
 
 <br>
@@ -66,26 +75,28 @@
 			<div class="col-lg-6">
 				<div class="shadow bg-light">
 					<div class="p-3">
-						<a class="btn btn-outline-dark text-dark" href="{{request.META.HTTP_REFERER}}">&#x2190; Back to
+						<a class="btn btn-outline-success text-dark" href="{{request.META.HTTP_REFERER}}">&#x2190; Back to
 							Cart</a>
 						<hr>
 						<h3 class="fw-bolder">Order Summary</h3>
 						<hr>
+						{% for item in items %}
 						<div class="row">
-							<div style="flex:2"><img class="row-image" src="{% static 'images/placeholder.png' %}">
+							<div style="flex:2"><img class="row img-style" src="{{item.product.image1.url}}">
 							</div>
 							<div style="flex:2">
-								<p class="fw-bolder">Product 1</p>
+								<p class="text-dark">{{item.product.product_name}}</p>
 							</div>
 							<div style="flex:1">
-								<p class="fw-bolder">$20.00</p>
+								<p class="fw-bold text-dark">ksh{{item.product.price}}</p>
 							</div>
 							<div style="flex:1">
-								<p class="fw-bolder">x2</p>
+								<p class="fw-bold text-dark">x{{item.quantity}}</p>
 							</div>
 						</div>
-						<h5 class="fw-bolder">Items: 2</h5>
-						<h5 class="fw-bolder">Total: $4</h5>
+						{% endfor %}
+						<h5 class="fw-bolder">Items: {{order.get_cart_items}}</h5>
+						<h5 class="fw-bolder">Total: ksh: {{order.get_cart_total|floatformat:2}}</h5>
 					</div>
 				</div>
 			</div>
