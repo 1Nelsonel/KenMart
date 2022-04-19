@@ -28,7 +28,7 @@
                       <a class="new" href="/">Home</a>
                     </li>
                     <li class="breadcrumb-item active" aria-current="page">
-                      <a class="new" href="{% url 'index' %}">Properties Grid</a>
+                      <a class="new" href="{% url 'shop' %}">Properties Grid</a>
                     </li>
                   </ol>
                 </nav>
@@ -44,17 +44,18 @@
 
               {% for product in products %}
 
-              <div class="col-md-3 bg-body p-1">
+              <div class="col-md-3 p-1">
 
-                <div class="shadow bg-light ">
-                  <img src="{{baseUrl}}/{{product.image1}}" class="card-img-top img-fluid" alt="...">
+                <div class="shadow bg-light">
+                  <img src="{{baseUrl}}/{{product.image1}}" class="card-img-top" alt="..." height="280" width="250">
                   <div class="card-body">
-                    <p class="fw-bold text-dark">{{product}}</p>
-                    <p class="card-text text-dark">Brand: <span class="fw-bold">{{product.sub_sub_category}}</span></p>
+                    <p class="fw-bold text-dark">{{product.product_name|truncatewords:5}}</p>
+                    <p class="card-text text-dark">Type: <span class="fw-bold">{{product.sub_sub_category}}</span></p>
                     <p class="card-text text-dark">Price: <span class="fw-bold">{{product.price|floatformat:2}}</span></p>
                     <a href="{% url 'product' product.id %}" class="btn btn-success">View</a>
                   
-                    <a href="{% url 'cart' %}" class="btn btn-primary ">Add To Cart</a>
+                    <!-- <a href="{% url 'cart' %}" class="btn btn-primary update-cart">Add To Cart</a> -->
+                    <button data-product="{{product.id}}" data-action="add" class="btn btn-primary add-btn update-cart">Add-To-Cart</button>
                     
                   </div>
                 </div>

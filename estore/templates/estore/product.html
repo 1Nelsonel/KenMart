@@ -43,10 +43,10 @@
           <div id="property-single-carousel" class="swiper">
             <div class="swiper-wrapper">
               <div class="carousel-item-b swiper-slide">
-                <img src="{{baseUrl}}/{{product.image1}}" alt="">
+                <img src="{{baseUrl}}/{{product.image1}}" alt="" height="400" width="350">
               </div>
               <div class="carousel-item-b swiper-slide">
-                <img src="{{baseUrl}}/{{product.image2}}" alt="">
+                <img src="{{baseUrl}}/{{product.image2}}" alt="" height="400" width="350">
               </div>
             </div>
           </div>
@@ -62,10 +62,10 @@
               <div class="property-price d-flex justify-content-center foo">
                 <div class="card-header-c d-flex">
                   <div class="card-box-ico">
-                    <span class="bi bi-cash">$</span>
+                    <span class="bi bi-cash"></span>
                   </div>
                   <div class="card-title-c align-self-center">
-                    <h5 class="title-c">{{product.price|floatformat:2}}</h5>
+                    <h5 class="title-c">kSH {{product.price|floatformat:2}}</h5>
                   </div>
                 </div>
               </div>
@@ -129,7 +129,8 @@
               <div class="row">
                 <div class="col-sm-6">
                   
-                    <a href="{% url 'cart' %}" class="btn btn-primary btn-lg ">Add To Cart</a>
+                    <a href="{% url 'cart' %}" class="btn btn-primary btn-lg update-cart">Add To Cart</a>
+                    <button data-product="{{product.id}}" data-action="add" class="btn btn-primary add-btn update-cart">Add-To-Cart</button>
                  
                 </div>
               </div>
