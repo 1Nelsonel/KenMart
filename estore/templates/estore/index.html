@@ -1,37 +1,9 @@
-{% load bootstrap5 %}
-<!-- Load the tag library -->
-<!-- Load CSS and JavaScript -->
-{% bootstrap_css %}
-{% bootstrap_javascript %}
-<!-- Display django.contrib.messages as Bootstrap alerts  -->
-{% bootstrap_messages %}
+{% extends 'main.html' %}
+
+{% block content %}
+
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>KenMart | Shop Now</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-
-  <!-- Favicons -->
-  <link href="{% static 'assets/img/icons8-tumblr-48.png' %}" rel="icon">
-
-  <!-- Google Fonts -->
-  <!--<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet"> -->
-
-  <!-- Vendor CSS Files -->
-  <link href="{% static 'vendor/animate.css/animate.min.css' %}" rel="stylesheet">
-  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-  <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
-  <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
-  <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
   <style>
     .hr {
@@ -75,7 +47,7 @@
     <div class="swiper-wrapper">
       <a href="{% url 'shop' %}">
         <div class="swiper-slide carousel-item-a intro-item bg-image"
-          style="background-image: url(assets/img/pexels-uzunov-rostislav-5011647.jpg)">
+          style="background-image: url({% static '/img/pexels-uzunov-rostislav-5011647.jpg' %})">
           <div class="overlay overlay-a"></div>
           <div class="intro-content display-table">
             <div class="table-cell">
@@ -103,7 +75,7 @@
       </a>
       <a href="{% url 'shop' %}">
         <div class="swiper-slide carousel-item-a intro-item bg-image"
-          style="background-image: url(assets/img/Laptop-Wallpapers-Hd-posted-by-John-Walker-5QnckRXhyjTnTM_transcpr.jpg)">
+          style="background-image: url({% static 'img/Laptop-Wallpapers-Hd-posted-by-John-Walker-5QnckRXhyjTnTM_transcpr.jpg' %})">
           <div class="overlay overlay-a"></div>
           <div class="intro-content display-table">
             <div class="table-cell">
@@ -131,7 +103,7 @@
       </a>
       <a href="{% url 'shop' %}">
         <div class="swiper-slide carousel-item-a intro-item bg-image"
-          style="background-image: url(assets/img/pexels-flo-maderebner-623919.jpg)">
+          style="background-image: url({% static 'img/pexels-flo-maderebner-623919.jpg' %})">
           <div class="overlay overlay-a"></div>
           <div class="intro-content display-table">
             <div class="table-cell">
@@ -162,17 +134,4 @@
   </div>
   </a>
 
-
-
-
-  <!-- Vendor JS Files -->
-  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-  <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
-  <script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
-
-  <!-- Template Main JS File -->
-  <script src="{% static 'js/main.js' %}"></script>
-
-</body>
-
-</html>
+  {% endblock %}

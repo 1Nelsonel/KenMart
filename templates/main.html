@@ -5,6 +5,9 @@
 {% bootstrap_javascript %}
 <!-- Display django.contrib.messages as Bootstrap alerts  -->
 {% bootstrap_messages %}
+<!-- bootstrap icons -->
+{% load bootstrap_icons %}
+<!-- load static -->
 {% load static %}
 
 <!DOCTYPE html>
@@ -22,17 +25,16 @@
   <link href="{% static 'img/icons8-tumblr-48.png' %}" rel="icon">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+  <!-- <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet"> -->
 
-  <!-- Vendor CSS Files -->
-  <link href="{% static 'vendor/animate.css/animate.min.css' %}" rel="stylesheet">
-  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-  <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
-  <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
-  <link href="{% static 'css/style.css' %}" rel="stylesheet">
-
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  
+    <!-- Template Main CSS File -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
   <style>
     .hr {
       color: #ffffff;
@@ -79,6 +81,7 @@
 
 
   {% endblock %}
+  
   
   <!-- End  Footer -->
   {% include 'footer.html' %}
