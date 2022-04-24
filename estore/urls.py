@@ -13,4 +13,6 @@ urlpatterns = [
     path('agent_single/', views.agent_single, name='agent_single'), 
     path('cart/', views.cart, name="cart"), 
     path('checkout/', views.checkout, name="checkout"), 
+
+    path('update_item/', views.updateItem, name='update_item'),
     ]

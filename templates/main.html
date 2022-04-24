@@ -27,14 +27,14 @@
   <!-- Google Fonts -->
   <!-- <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet"> -->
 
-    <!-- Vendor CSS Files -->
-    <link href="{% static 'vendor/animate.css/animate.min.css' %}" rel="stylesheet">
-    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-    <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
-    <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
-  
-    <!-- Template Main CSS File -->
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
   <style>
     .hr {
       color: #ffffff;
@@ -70,6 +70,25 @@
   </style>
   <script type="text/javascript">
     var user = '{{request.user}}'
+
+    function getCookie(name) {
+      var cookieValue = null;
+      if (document.cockies && document.cookie !== '') {
+        var cookies = document.cookie.split(',');
+        for (var i = 0; i < cookies.length; i++) {
+          var cookie = cookies[i].trim();
+          // Does this cookie string begin with the name we want?
+          if (cookie.substring(0, name.length + 1) === (name + '=')) {
+            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+            break;
+          }
+        }
+      }
+      return cookieValue;
+
+    }
+    var csrftoken = getCookie('csrftoken');
+
   </script>
 
 <body class="">
@@ -81,13 +100,13 @@
 
 
   {% endblock %}
-  
-  
+
+
   <!-- End  Footer -->
   {% include 'footer.html' %}
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-        class="bi bi-arrow-up-short"></i></a>
+      class="bi bi-arrow-up-short"></i></a>
 
 
 

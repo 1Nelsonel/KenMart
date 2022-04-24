@@ -18,7 +18,7 @@
               <div class="col-md-12 col-lg-8">
                 <div class="title-single-box">
                   <h3 class="title-single"></h3>
-      
+
                 </div>
               </div>
               <div class="col-md-12 col-lg-4">
@@ -42,7 +42,7 @@
           <div class="container">
             <div class="row">
 
-              {% for product in products %}
+              {% for product in page_obj %}
 
               <div class="col-md-3 p-1">
 
@@ -50,19 +50,83 @@
                   <img src="{{baseUrl}}/{{product.image1}}" class="card-img-top" alt="..." height="280" width="250">
                   <div class="card-body">
                     <p class="fw-bold text-dark">{{product.product_name|truncatewords:5}}</p>
-                    <p class="card-text text-dark">Type: <span class="fw-bold">{{product.sub_sub_category}}</span></p>
-                    <p class="card-text text-dark">Price: <span class="fw-bold">{{product.price|floatformat:2}}</span></p>
+
+                    <p class="card-text text-dark">Price: <span class="fw-bold">{{product.price|floatformat:2}}</span>
+                    </p>
                     <a href="{% url 'product' product.id %}" class="btn btn-success">View</a>
-                  
+
                     <!-- <a href="{% url 'cart' %}" class="btn btn-primary update-cart">Add To Cart</a> -->
-                    <button data-product="{{product.id}}" data-action="add" class="btn btn-primary add-btn update-cart">Add-To-Cart</button>
-                    
+                    <button data-product="{{product.id}}" data-action="add"
+                      class="btn btn-primary add-btn update-cart">Add-To-Cart</button>
+
                   </div>
                 </div>
               </div>
               {% endfor %}
 
             </div>
+
+
+            <!-- <div class="pagination p-4 justify-content-end">
+              <span class="step-links fw-bold ">
+                {% if page_obj.has_previous %}
+                <a class="text-dark" href="?page=1">&laquo; first</a>
+                <a class="text-dark" href="?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+
+                <span class="current">
+                  Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+
+                {% if page_obj.has_next %}
+                <a class="text-dark" href="?page={{ page_obj.next_page_number }}">next</a>
+                <a class="text-dark" href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+              </span>
+            </div> -->
+
+            <div class="row">
+              <div class="col-sm-12">
+                <nav class="pagination-a pagination p-4 justify-content-end">
+                  <ul class="pagination justify-content-end">
+                    {% if page_obj.has_previous %}
+                    <li class="page-item">
+                      <a class="page-link text-dark" href="?page=1">
+                        <span class="bi bi-chevron-double-left"></span>
+                        First
+                      </a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link text-dark" href="?page={{ page_obj.previous_page_number }}" tabindex="-1">
+                        <span class="bi bi-chevron-left"></span>
+                      </a>
+                    </li>
+                    {% endif %}
+
+                    <li class="page-item current active">
+                      <a class="page-link text-dark" href="#">{{ page_obj.number }}</a>
+                    </li>
+
+                    {% if page_obj.has_next %}
+                    <li class="page-item next">
+                      <a class="page-link text-dark" href="?page={{ page_obj.next_page_number }}">
+                        <span class="bi bi-chevron-right"></span>
+                      </a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link text-dark" href="?page={{ page_obj.paginator.num_pages }}">
+                        Last
+                        <span class="bi bi-chevron-double-right"></span>
+                      </a>
+                      
+                    </li>
+                    {% endif %}
+                  </ul>
+                </nav>
+              </div>
+            </div>
+
+
           </div>
         </section>
       </div>

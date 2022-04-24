@@ -1,6 +1,8 @@
 from django.contrib import messages
 from django.db.models import Q
+from django.http import JsonResponse
 from django.shortcuts import render
+from django.core.paginator import Paginator
 from estore.models import Product, Category, Sub_Category, Sub_Sub_Category, Customer, Order, OrderItem, ShippingAddress
 
 # Create your views here.
@@ -22,8 +24,12 @@ def shop(request):
     )
 
     categories = Category.objects.all()
+    paginator = Paginator(products, 8) # Show 8 contacts per page.
 
-    context = {'products': products, 'categories': categories}
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    context = {'products': products, 'categories': categories,'page_obj': page_obj}
     return render(request, 'estore/shop.html', context)
 
 
@@ -82,3 +88,6 @@ def checkout(request):
         order = {'get_cart_total': 0, 'get_cart_item': 0}
     context = {'items': items, 'order': order}
     return render(request, 'estore/checkout.html', context)
+
+def updateItem(request):
+    return JsonResponse('Item was added', safe=False)
