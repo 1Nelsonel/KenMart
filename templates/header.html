@@ -69,10 +69,10 @@
 
     </button>
     <div class=" navbar-toggle-box">
-      <a href="#">
+      <a href="{% url 'cart_detail' %}">
         <i class="bi bi-cart3"></i>
       </a>
-      <p class="bg-light p-2 rounded-pill" id="cart-total">0</p>
+      <p class="bg-light p-2 rounded-pill" id="cart-total">{{request.session.cart|length}}</p>
     </div>
 
 

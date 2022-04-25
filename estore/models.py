@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 # Create your models here.
 # Main Category
@@ -47,23 +48,23 @@ class Customer(models.Model):
 
 
 class Product(models.Model):
-    product_name = models.CharField(max_length=200)
+    name = models.CharField(max_length=200)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     sub_category = models.ForeignKey(Sub_Category, on_delete=models.CASCADE)
     sub_sub_category = models.ForeignKey(Sub_Sub_Category, on_delete=models.CASCADE)
-    price = models.IntegerField()
-    image1 = models.ImageField(upload_to='media')
+    price = models.FloatField(default=0)
+    image = models.ImageField(upload_to='media')
     image2 = models.ImageField(upload_to='media')
     description = models.TextField()
     release_date = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
-    num_stars = models.IntegerField()
+    num_stars = models.FloatField(default=0, validators=[MaxValueValidator(10),MinValueValidator(1)])
 
     class Meta:
         ordering = ['-updated', '-release_date']
 
     def __str__(self):
-        return self.product_name
+        return self.name
 
 
 class Order(models.Model):
@@ -102,7 +103,7 @@ class OrderItem(models.Model):
 
 class ShippingAddress(models.Model):
     customer = models.ForeignKey(
-        Customer, on_delete=models.SET_NULL, null=True)
+    Customer, on_delete=models.SET_NULL, null=True)
     order = models.ForeignKey(Order, on_delete=models.SET_NULL, null=True)
     address = models.CharField(max_length=200, null=False)
     city = models.CharField(max_length=200, null=False)

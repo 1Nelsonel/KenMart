@@ -27,6 +27,7 @@
 <div class="container p-3 pt-5 ">
     <div class="row">
         <div class="col-lg-12">
+            {% load cart_tag %}
             <div class="shadow p-3">
 
                 <a class="btn btn-outline-success  text-dark" href="{% url 'shop' %}">&#x2190; Continue
@@ -35,10 +36,11 @@
                 <table class="table">
                     <tr>
                         <th>
-                            <h5>Items: <strong>{{order.get_cart_items}} </strong></h5>
+                            <h5>Items: <strong>{{request.session.cart|length}} </strong></h5>
                         </th>
                         <th>
-                            <h5>Total:<strong> kSH {{order.get_cart_total|floatformat:2}}</strong></h5>
+                            <h5>Total:<strong> kSH {{request.session.cart|length}}</strong></h5>
+                            <!--  value.price|multiply:value.quantity -->
                         </th>
                         <th>
                             <a style="float:right; margin:5px;" class="btn btn-success" href="{% url 'checkout' %}">Checkout</a>
@@ -53,41 +55,66 @@
             <div class="row">
                 <div class="shadow">
                     <div class="row">
-                        <div style="flex:2"></div>
+                        <div style="flex:2" class="fw-bold text-dark"><strong>Image</strong></div>
                         <div style="flex:2" class="fw-bold text-dark"><strong>Item</strong></div>
                         <div style="flex:1" class="fw-bold text-dark"><strong>Price</strong></div>
                         <div style="flex:1" class="fw-bold text-dark"><strong>Quantity</strong></div>
                         <div style="flex:1" class="fw-bold text-dark"><strong>Total</strong></div>
                     </div>
                     <hr>
-                    {% for item in items %}
+                    {% for key,value in request.session.cart.items %}
                     <div class="row">
 
-                        <div style="flex:2"><img class="row-image img-style" src="{{item.product.image1.url}}"></div>
+                        <div style="flex:2"><img class="row-image img-style" src="{{value.image}}"></div>
                         <div style="flex:2">
-                            <p class="text-dark">{{item.product.product_name}}</p>
+                            <p class="text-dark">{{value.name}}</p>
                         </div>
                         <div style="flex:1">
-                            <p class="text-dark">ksh {{item.product.price|floatformat:2}}</p>
+                            <p class="text-dark">ksh {{value.price|floatformat:2}}</p>
                         </div>
                         <div style="flex:1">
-                            <p class="quantity text-dark">X{{item.quantity}}
+                            <p class="quantity text-dark">X{{value.quantity}}
                             <div class="quantity">
-                                <i class="bi bi-caret-up-fill ch-quantity text-dark"></i>
-                                <i class="bi bi-caret-down-fill ch-quantity text-dark"></i>
+                                <a href="{% url 'item_increment' value.product_id %}">
+                                    <i class="bi bi-caret-up-fill ch-quantity text-primary"></i>
+                                </a>
+                                {% if value.quantity > 1 %}
+                                
+                                <a href="{% url 'item_decrement' value.product_id %}">
+                                    <i class="bi bi-caret-down-fill ch-quantity text-primary"></i>
+                                </a>
+
+                                {% endif %}
+                                
+                            </div>
+                            <div class="quantity">
+                                <a href="{% url 'item_clear' value.product_id %}">
+                                    <i class="bi bi-x-circle-fill fw-bold  text-danger"></i>
+                                </a>
                             </div>
                             </p>
                         </div>
                         <div style="flex:1">
-                            <p class="text-dark">kSH {{item.get_total|floatformat:2}} </p>
+                            <p class="text-dark">kSH {{ value.price|multiply:value.quantity }} </p>
                         </div>
 
                     </div>
                     {% endfor %}
                     <hr>
+                    <div class="p-4 justify-content-between">
+                        <h5 class="text-dark">Total:<strong> kSH {{value.get_cart_total}}</strong></h5>
+                    </div>
+                    
+                    <hr>
+                    <div class="p-4 justify-content-between">
+                        <a class="btn btn-danger " href="{% url 'cart_clear' %}">Clear Cart</a>
+                    </div>
 
                 </div>
+
+                
             </div>
+            
         </div>
     </div>
 </div>

@@ -1,0 +1,35 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+{% load static %}
+
+</style>
+
+<div class="p-3 pt-5">
+
+</div>
+<div class="container p-3 pt-5 ">
+    <div class="row">
+        <div class="col-lg-12">
+
+            {% load cart_tag %}
+
+            Total Length :: {{request.session.cart|length}}
+
+            Cart Detail::
+            {% for key,value in request.session.cart.items %}
+            <img src="{{value.image}}" width="120" height="80"><br>
+            {{value.name}}<br>
+            {{value.price}} <br>
+            {{value.quantity}} <br>
+            Total {{ value.price|multiply:value.quantity }}
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}
