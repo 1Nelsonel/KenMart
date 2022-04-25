@@ -41,7 +41,7 @@
         <section class="property-grid grid">
           <div class="container">
             <div class="row">
-
+              <!-- product loop -->
               {% for product in page_obj %}
 
               <div class="col-md-3 p-1">
@@ -63,28 +63,11 @@
                 </div>
               </div>
               {% endfor %}
+              <!-- end of properties  -->
 
             </div>
 
-
-            <!-- <div class="pagination p-4 justify-content-end">
-              <span class="step-links fw-bold ">
-                {% if page_obj.has_previous %}
-                <a class="text-dark" href="?page=1">&laquo; first</a>
-                <a class="text-dark" href="?page={{ page_obj.previous_page_number }}">previous</a>
-                {% endif %}
-
-                <span class="current">
-                  Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-                </span>
-
-                {% if page_obj.has_next %}
-                <a class="text-dark" href="?page={{ page_obj.next_page_number }}">next</a>
-                <a class="text-dark" href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
-                {% endif %}
-              </span>
-            </div> -->
-
+            <!-- pagination -->
             <div class="row">
               <div class="col-sm-12">
                 <nav class="pagination-a pagination p-4 justify-content-end">
@@ -125,7 +108,7 @@
                 </nav>
               </div>
             </div>
-
+            <!-- end of pagination -->
 
           </div>
         </section>
