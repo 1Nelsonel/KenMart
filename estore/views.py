@@ -1,6 +1,5 @@
 from django.contrib import messages
 from django.db.models import Q
-from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
@@ -68,11 +67,13 @@ def agent_single(request):
 
 
 # cart add, remove, clear, increment, decrement
+
 @login_required(login_url="/admin/login")
 def cart_add(request, id):
     cart = Cart(request)
     product = Product.objects.get(id=id)
     cart.add(product=product)
+    
     return redirect("shop")
 
 @property
@@ -87,6 +88,7 @@ def item_clear(request, id):
     cart = Cart(request)
     product = Product.objects.get(id=id)
     cart.remove(product)
+    messages.info(request, "Item cleared from cart")
     return redirect("cart_detail")
 
 
@@ -95,6 +97,7 @@ def item_increment(request, id):
     cart = Cart(request)
     product = Product.objects.get(id=id)
     cart.add(product=product)
+    messages.info(request, "Product increased in cart")
     return redirect("cart_detail")
 
 
@@ -103,6 +106,7 @@ def item_decrement(request, id):
     cart = Cart(request)
     product = Product.objects.get(id=id)
     cart.decrement(product=product)
+    messages.info(request, "Product decreased in cart")
     return redirect("cart_detail")
 
 
@@ -110,6 +114,7 @@ def item_decrement(request, id):
 def cart_clear(request):
     cart = Cart(request)
     cart.clear()
+    messages.info(request, "Product cleared cart")
     return redirect("cart_detail")
 
 

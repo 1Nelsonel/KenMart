@@ -95,7 +95,7 @@
                             </p>
                         </div>
                         <div style="flex:1">
-                            <p class="text-dark">kSH {{ value.price|multiply:value.quantity }} </p>
+                            <p class="text-dark">kSH {{value.price|multiply:value.quantity}} </p>
                         </div>
 
                     </div>
@@ -103,7 +103,7 @@
                     <hr>
                     {% endfor %}
                     <div class="p-4 justify-content-between">
-                        <h5 class="text-dark">Total:<strong> kSH {{total}}</strong></h5>
+                        <h5 class="text-dark">Total:<strong> kSH {{session.get_total}}</strong></h5>
                     </div>
                     
                     <hr>
