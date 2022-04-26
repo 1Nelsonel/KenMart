@@ -75,6 +75,12 @@ def cart_add(request, id):
     cart.add(product=product)
     return redirect("shop")
 
+@property
+def get_total(self):
+    orderitems = self.orderitem_set.all()
+    total = sum([item.get_total for item in orderitems])
+    return total
+
 
 @login_required(login_url="/admin/login")
 def item_clear(request, id):

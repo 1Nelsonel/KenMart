@@ -39,7 +39,7 @@
                             <h5>Items: <strong>{{request.session.cart|length}} </strong></h5>
                         </th>
                         <th>
-                            <h5>Total:<strong> kSH {{request.session.cart|length}}</strong></h5>
+                            <h5>Total:<strong> kSH {{total}}</strong></h5>
                             <!--  value.price|multiply:value.quantity -->
                         </th>
                         <th>
@@ -99,10 +99,11 @@
                         </div>
 
                     </div>
-                    {% endfor %}
+                   
                     <hr>
+                    {% endfor %}
                     <div class="p-4 justify-content-between">
-                        <h5 class="text-dark">Total:<strong> kSH {{value.get_cart_total}}</strong></h5>
+                        <h5 class="text-dark">Total:<strong> kSH {{total}}</strong></h5>
                     </div>
                     
                     <hr>
