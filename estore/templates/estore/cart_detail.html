@@ -4,21 +4,24 @@
 <style>
     /* custom styles */
 
-.img-style {
-  width: 100px !important;
-  height: 90px !important;
-}
-.quantity {
-  display: inline-block !important;
-  font-weight: 700 !important;
-  padding-right: 10px !important;
-}
-.ch-quantity {
-  width: 12px !important;
-  cursor: pointer !important;
-  display: block !important;
-}
-/* end of custom styles */   
+    .img-style {
+        width: 100px !important;
+        height: 90px !important;
+    }
+
+    .quantity {
+        display: inline-block !important;
+        font-weight: 700 !important;
+        padding-right: 10px !important;
+    }
+
+    .ch-quantity {
+        width: 12px !important;
+        cursor: pointer !important;
+        display: block !important;
+    }
+
+    /* end of custom styles */
 </style>
 
 <div class="p-3 pt-5">
@@ -39,11 +42,12 @@
                             <h5>Items: <strong>{{request.session.cart|length}} </strong></h5>
                         </th>
                         <th>
-                            <h5>Total:<strong> kSH {{total}}</strong></h5>
+                            <h5>Total:<strong> kSH {{cart_total_amount}}</strong></h5>
                             <!--  value.price|multiply:value.quantity -->
                         </th>
                         <th>
-                            <a style="float:right; margin:5px;" class="btn btn-success" href="{% url 'checkout' %}">Checkout</a>
+                            <a style="float:right; margin:5px;" class="btn btn-success"
+                                href="{% url 'checkout' %}">Checkout</a>
                         </th>
                     </tr>
                 </table>
@@ -79,13 +83,13 @@
                                     <i class="bi bi-caret-up-fill ch-quantity text-primary"></i>
                                 </a>
                                 {% if value.quantity > 1 %}
-                                
+
                                 <a href="{% url 'item_decrement' value.product_id %}">
                                     <i class="bi bi-caret-down-fill ch-quantity text-primary"></i>
                                 </a>
 
                                 {% endif %}
-                                
+
                             </div>
                             <div class="quantity">
                                 <a href="{% url 'item_clear' value.product_id %}">
@@ -99,23 +103,21 @@
                         </div>
 
                     </div>
-                   
+
                     <hr>
                     {% endfor %}
-                    <div class="p-4 justify-content-between">
-                        <h5 class="text-dark">Total:<strong> kSH {{session.get_total}}</strong></h5>
-                    </div>
-                    
-                    <hr>
+
                     <div class="p-4 justify-content-between">
                         <a class="btn btn-danger " href="{% url 'cart_clear' %}">Clear Cart</a>
                     </div>
 
+                    <hr>
+
                 </div>
 
-                
+
             </div>
-            
+
         </div>
     </div>
 </div>

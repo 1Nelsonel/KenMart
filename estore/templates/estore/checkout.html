@@ -2,14 +2,14 @@
 {% load static %}
 {% block content %}
 <style>
-    /* custom styles */
+	/* custom styles */
 
-.img-style {
-  width: 100px !important;
-  height: 90px !important;
-}
+	.img-style {
+		width: 100px !important;
+		height: 90px !important;
+	}
 
-/* end of custom styles */   
+	/* end of custom styles */
 </style>
 
 
@@ -57,8 +57,7 @@
 
 						<hr>
 						<div class="row p-3">
-							<input id="form-button" class="btn btn-success btn-block" type="submit"
-								value="Continue">
+							<input id="form-button" class="btn btn-success btn-block" type="submit" value="Continue">
 						</div>
 
 
@@ -75,28 +74,39 @@
 			<div class="col-lg-6">
 				<div class="shadow bg-light">
 					<div class="p-3">
-						<a class="btn btn-outline-success text-dark" href="{{request.META.HTTP_REFERER}}">&#x2190; Back to
+						<a class="btn btn-outline-success text-dark" href="{{request.META.HTTP_REFERER}}">&#x2190; Back
+							to
 							Cart</a>
 						<hr>
 						<h3 class="fw-bolder">Order Summary</h3>
 						<hr>
-						{% for item in items %}
+						{% load cart_tag %}
+
+						{% for key,value in request.session.cart.items %}
 						<div class="row">
-							<div style="flex:2"><img class="row img-style" src="{{item.product.image.url}}">
+							<div style="flex:2"><img class="row img-style" src="{{value.image}}">
 							</div>
 							<div style="flex:2">
-								<p class="text-dark">{{item.product.product_name}}</p>
+								<p class="text-dark fw-bold">{{value.name}}</p>
 							</div>
 							<div style="flex:1">
-								<p class="fw-bold text-dark">ksh{{item.product.price}}</p>
+								<p class="fw-bold text-dark">x{{value.quantity}}</p>
 							</div>
 							<div style="flex:1">
-								<p class="fw-bold text-dark">x{{item.quantity}}</p>
+								<p class="fw-bold text-dark">ksh{{value.price}}</p>
 							</div>
 						</div>
+						<hr>
 						{% endfor %}
-						<h5 class="fw-bolder">Items: {{order.get_cart_items}}</h5>
-						<h5 class="fw-bolder">Total: ksh: {{order.get_cart_total|floatformat:2}}</h5>
+						
+						<div>
+							<p class="fw-bolder text-dark"><span class="text-dark">Shipping Cost: </span>Free </p>
+						</div>
+						<hr>
+						<div>
+							<p class="fw-bolder text-dark">Total: ksh: {{cart_total_amount|floatformat:2}}</p>
+						</div>
+						<div></div>
 					</div>
 				</div>
 			</div>
