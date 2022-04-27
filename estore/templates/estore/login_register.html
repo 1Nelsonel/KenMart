@@ -1,0 +1,111 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<main class="auth layout p-3">
+
+  {% if page == 'login' %}
+  <div class="container bg-light">
+    <div class="bg-light">
+      <div class=" bg-light">
+        <div class=" bg-light">
+          <h3>Login</h3>
+        </div>
+        <hr class="bg-light">
+      </div>
+      <hr class="bg-light">
+      <div class=" ">
+        <h2 class="">Your All Time Shopping Solution</h2>
+
+        <form class="form" action="" method="POST">
+          {% csrf_token %}
+          <div class="row justify-content-between">
+            <div class="col-sm-5 ">
+              <div class="form ">
+                <label class="text-dark fw-bold" for="room_name">Username</label>
+                <input class="text-dark bg-light form-control" id="username" name="username" type="text"
+                  placeholder="enter your username" />
+              </div>
+              <br>
+              <div class="form">
+                <label class="text-dark fw-bold" for="password">Password</label>
+                <input class="text-dark bg-light form-control" id="password" name="password" type="password"
+                  placeholder="enter your password" />
+              </div>
+              <div class="p-3">
+
+              </div>
+
+              <button class="btn btn-primary btn-sm" type="submit">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                  <title>lock</title>
+                  <path
+                    d="M27 12h-1v-2c0-5.514-4.486-10-10-10s-10 4.486-10 10v2h-1c-0.553 0-1 0.447-1 1v18c0 0.553 0.447 1 1 1h22c0.553 0 1-0.447 1-1v-18c0-0.553-0.447-1-1-1zM8 10c0-4.411 3.589-8 8-8s8 3.589 8 8v2h-16v-2zM26 30h-20v-16h20v16z">
+                  </path>
+                  <path
+                    d="M15 21.694v4.306h2v-4.306c0.587-0.348 1-0.961 1-1.694 0-1.105-0.895-2-2-2s-2 0.895-2 2c0 0.732 0.413 1.345 1 1.694z">
+                  </path>
+                </svg>
+
+                Login
+              </button>
+            </div>
+          </div>
+
+        </form>
+
+        <div class="">
+          <p>Haven't signed up yet?</p>
+          <a href="{% url 'register' %}" class="btn btn-success text-dark fw-bold">Sign Up</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% else %}
+  <div class="container">
+    <div class="mt-4">
+      <div class=" ">
+        <div class="">
+          <h3 class="">Register</h3>
+        </div>
+      </div>
+
+      <div class="">
+        <form class="form" action="" method="POST">
+          {% csrf_token %}
+
+          {% for field in form %}
+          <div class="input-group">
+            <label class="text-dark fw-bold " for="room_name">{{field.label}} </label>
+            <span class=""> {{field}}</span>
+
+          </div>
+          {% endfor %}
+
+
+          <button class="btn btn--main" type="submit">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+              <title>lock</title>
+              <path
+                d="M27 12h-1v-2c0-5.514-4.486-10-10-10s-10 4.486-10 10v2h-1c-0.553 0-1 0.447-1 1v18c0 0.553 0.447 1 1 1h22c0.553 0 1-0.447 1-1v-18c0-0.553-0.447-1-1-1zM8 10c0-4.411 3.589-8 8-8s8 3.589 8 8v2h-16v-2zM26 30h-20v-16h20v16z">
+              </path>
+              <path
+                d="M15 21.694v4.306h2v-4.306c0.587-0.348 1-0.961 1-1.694 0-1.105-0.895-2-2-2s-2 0.895-2 2c0 0.732 0.413 1.345 1 1.694z">
+              </path>
+            </svg>
+
+            Register
+          </button>
+        </form>
+
+        <div class="">
+          <p>Already signed up yet?</p>
+          <a href="{% url 'login' %}" class="btn btn-primary">login</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+</main>
+
+{% endblock content %}

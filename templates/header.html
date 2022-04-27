@@ -66,13 +66,13 @@
     <button type="button" class="btn btn-b-n navbar-toggle-box navbar-toggle-box-collapse" data-bs-toggle="collapse"
       data-bs-target="#navbarTogglerDemo01">
       <i class="bi bi-person-circle"></i>
-
     </button>
+    <a href="{% url 'shop' %}">Login</a>
     <div class=" navbar-toggle-box">
       <a href="{% url 'cart_detail' %}">
-        <i class="bi bi-cart3"></i>
+        <i class="bi bi-cart3 "></i>
       </a>
-      <p class="bg-light p-2 rounded-pill" id="cart-total">{{request.session.cart|length}}</p>
+      <p class="bg-primary text-light p-2 rounded-pill" id="cart-total">{{request.session.cart|length}}</p>
     </div>
 
 

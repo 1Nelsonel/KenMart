@@ -5,12 +5,65 @@ from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
 from cart.cart import Cart
 from estore.models import Product, Category, Sub_Category, Sub_Sub_Category, Customer, Order, OrderItem, ShippingAddress
-
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from .models import Product, User
+from .forms import UserForm
 # Create your views here.
 
 
 def index(request):
     return render(request, 'estore/index.html')
+
+def loginPage(request):
+    page = 'login'
+    if request.user.is_authenticated:
+        return redirect('shop')
+
+    if request.method == 'POST':
+        username = request.POST.get('username').lower()
+        password = request.POST.get('password')
+
+        try:
+            user = User.objects.get(username=username)
+        except:
+            messages.error(request, 'Invalid User')
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            return redirect('shop')
+        else:
+            messages.error(request, 'Invalid login credentials')
+    context = {'page': page}
+    return render(request, 'estore/login_register.html', context)
+
+
+def logoutUser(request):
+    logout(request)
+    messages.success(request, 'User logged out')
+    return redirect('index')
+
+
+def registerPage(request):
+    form = UserCreationForm()
+
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.username = user.username.lower()
+            user.save()
+            login(request, user)
+            messages.success(request, 'User registered')
+            return redirect('shop')
+        else:
+            messages.error(request, 'Failed, Please Try Again.')
+            
+        
+    return render(request, 'estore/login_register.html', {'form': form})
+
 
 
 def shop(request):
@@ -76,12 +129,6 @@ def cart_add(request, id):
     
     return redirect("shop")
 
-@property
-def get_total(self):
-    orderitems = self.orderitem_set.all()
-    total = sum([item.get_total for item in orderitems])
-    return total
-
 
 @login_required(login_url="/admin/login")
 def item_clear(request, id):
@@ -130,7 +177,6 @@ def cart_detail(request):
     context = {'items': items, 'order': order}
     return render(request, 'estore/cart_detail.html', context)
 
-def total_price(request):
     pass
 
 def checkout(request):
