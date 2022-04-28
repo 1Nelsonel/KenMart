@@ -33,7 +33,7 @@ def loginPage(request):
 
         if user is not None:
             login(request, user)
-            return redirect('shop')
+            return redirect('register')
         else:
             messages.error(request, 'Invalid login credentials')
     context = {'page': page}
