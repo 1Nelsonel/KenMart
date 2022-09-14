@@ -129,7 +129,7 @@
               <div class="row">
                 <div class="col-sm-6">
                   
-                    <a href="{% url 'cart' %}" class="btn btn-primary btn-lg update-cart">Add To Cart</a>
+                    <a href="{% url 'cart_add' product.id %}" class="btn btn-primary btn-lg update-cart">Add To Cart</a>
                     <button data-product="{{product.id}}" data-action="add" class="btn btn-primary add-btn update-cart">Add-To-Cart</button>
                  
                 </div>
